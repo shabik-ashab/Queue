@@ -2,16 +2,14 @@
 using namespace std;
 
 class Node{
+public:
     int value;
     Node* next;
-
-public:
 
     Node(int val){
         value = val;
         next = NULL;
     }
-
 };
 
 class Queue{
@@ -24,7 +22,26 @@ public:
         rear = NULL;
     }
 
-    //
+    //enqueue ---> push
+
+    void push(int val){
+        Node* newNode = new Node(val);
+
+        if(front == NULL){
+            front = newNode;
+            rear = newNode;
+            return;
+        }
+
+        rear->next = newNode;
+        rear = rear->next;
+    }
+
+    //dequeue ---> pop
+
+    //peel ---> front() back()
+
+    //empty
 };
 
 int main()
