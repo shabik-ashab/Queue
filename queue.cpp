@@ -32,28 +32,58 @@ int main()
     }
     */
 
-   // deque O(1)
-   // we will del elem from front pointer
-   // corner case
-   //c1: f==r 
-   /*
-   if(arr[f] ! =0)
-    return = arr[f];
-    else if(arr[f] == 0 && f==r){
-        "underflow";
-        return -1;
+    // deque O(1)
+    // we will del elem from front pointer
+    // corner case
+     //c1: f==r 
+    /*
+    if(arr[f] ! =0)
+     return = arr[f];
+     else if(arr[f] == 0 && f==r){
+            "underflow";
+            return -1;
     }    
-   //c1:
-   if(f!=r)
-       f = f+1 mod(n);
+    //c1:
+    if(f!=r)
+        f = f+1 mod(n);
     else
         arr[f] = 0;
-   */
+    */
   
-  // problem implemeting queue using array
-  //1. memory is static we can not change 
-  //2. chances of overflow 
-  //3. chances of underflow 
+    // problem implemeting queue using array
+    //1. memory is static we can not change 
+    //2. chances of overflow 
+    //3. chances of underflow 
+
+    // queue using Linked list
+    // at fitst front and rear pointer will set to NULL pointer
+
+    // enqueue operation (add elements)
+    /*
+        Node* newNode;
+        if(f == NULL){
+            f = newNode;
+            r = newNode;
+            return;
+        }
+        r->Next = newNode;
+        r = r->Next;
+    */
+
+
+    // dequeue operation (delete elements)
+    // we will delete at head
+    /*
+        if(f == NULL) "underflow";
+        delNode = f;
+        f = f->Next;
+        if(f == r) r = NULL:
+        
+        delete delNode;
+    */
+
+    // peek operation
+    // empty operation
 
     return 0;
 }
