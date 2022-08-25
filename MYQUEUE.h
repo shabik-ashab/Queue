@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node{
+template<typename N> class Node{
 public:
-    int value;
+    N value;
     Node* next;
 
-    Node(int val){
+    Node(N val){
         value = val;
         next = NULL;
     }
 };
 
-class Queue{
-    Node* front;
-    Node* rear;
+template<typename Q> class Queue{
+    Node<Q> *front;
+    Node<Q> *rear;
 
 public:
     Queue(){
@@ -24,8 +24,8 @@ public:
 
     //enqueue ---> push
 
-    void push(int val){
-        Node* newNode = new Node(val);
+    void push(Q val){
+        Node<Q> *newNode = new Node<Q> (val);
 
         if(front == NULL){
             front = newNode;
@@ -39,14 +39,14 @@ public:
 
     //dequeue ---> pop
 
-    int pop(){
-        int chk = -1;
+    Q pop(){
+        Q chk;
         if(rear == NULL){
             cout<<"queue underflow || there is no element"<<endl;
-            return -1;
+            return chk;
         }
 
-        Node* delNode;
+        Node<Q> *delNode;
         delNode = front;
 
         front = front->next;
@@ -58,13 +58,13 @@ public:
     }
 
     //peel ---> front() back()
-    int front(){
-        int chk = front->value;
+    Q Front(){
+        Q chk = front->value;
         return chk;
     }
 
-    int back(){
-        int chk = rear->value;
+    Q Back(){
+        Q chk = rear->value;
         return chk;
     }
 
