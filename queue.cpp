@@ -15,7 +15,7 @@ int main()
     // initially front anr rear pointer will set to -1
 
     // enqueue O(1)
-    // we will add element ar rear pointer
+    // we will add element at rear pointer
     // corner case
     //c1: s==f means our array is full
     /*
@@ -28,14 +28,14 @@ int main()
         if(s!=f){
             s = r+1 mod(n);
             arr[s];
-        }else "queue full";   
+        }else "queue full || overflow";   
     }
     */
 
     // deque O(1)
     // we will del elem from front pointer
     // corner case
-     //c1: f==r 
+     //c1: f==r means queue is underflow
     /*
     if(arr[f] ! =0)
      return = arr[f];
@@ -78,7 +78,7 @@ int main()
         delNode = f;
         f = f->Next;
         if(f == r) r = NULL:
-        
+
         delete delNode;
     */
 

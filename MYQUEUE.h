@@ -1,33 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<typename N> class Node{
+template <typename N>
+class doublyNode
+{
 public:
     N value;
-    Node* next;
+    doublyNode *next;
 
-    Node(N val){
+    doublyNode(N val)
+    {
         value = val;
         next = NULL;
     }
 };
 
-template<typename Q> class Queue{
-    Node<Q> *front;
-    Node<Q> *rear;
+template <typename Q>
+class Queue
+{
+    doublyNode<Q> *front;
+    doublyNode<Q> *rear;
 
 public:
-    Queue(){
+    Queue()
+    {
         front = NULL;
         rear = NULL;
     }
 
-    //enqueue ---> push
+    // enqueue ---> push
 
-    void push(Q val){
-        Node<Q> *newNode = new Node<Q> (val);
+    void push(Q val)
+    {
+        doublyNode<Q> *newNode = new doublyNode<Q>(val);
 
-        if(front == NULL){
+        if (front == NULL)
+        {
             front = newNode;
             rear = newNode;
             return;
@@ -37,40 +45,48 @@ public:
         rear = rear->next;
     }
 
-    //dequeue ---> pop
+    // dequeue ---> pop
 
-    Q pop(){
+    Q pop()
+    {
         Q chk;
-        if(rear == NULL){
-            cout<<"queue underflow || there is no element"<<endl;
+        if (rear == NULL)
+        {
+            cout << "queue underflow || there is no element" << endl;
             return chk;
         }
 
-        Node<Q> *delNode;
+        doublyNode<Q> *delNode;
         delNode = front;
 
         front = front->next;
-        if(front == NULL) rear = NULL;
+        if (front == NULL)
+            rear = NULL;
         chk = delNode->value;
 
         delete delNode;
         return chk;
     }
 
-    //peel ---> front() back()
-    Q Front(){
+    // peel ---> front() back()
+    Q Front()
+    {
         Q chk = front->value;
         return chk;
     }
 
-    Q Back(){
+    Q Back()
+    {
         Q chk = rear->value;
         return chk;
     }
 
-    //empty
-    bool empty(){
-        if(front == NULL && rear == NULL) return true;
-        else return false;
+    // empty
+    bool empty()
+    {
+        if (front == NULL && rear == NULL)
+            return true;
+        else
+            return false;
     }
 };
