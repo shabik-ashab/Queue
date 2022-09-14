@@ -8,6 +8,10 @@ void swap(int *a, int *b){
     *b = temp;
 }
 
+// first take cur as largest
+// cur is n/2 - 1
+// we will search left and right
+// we will update largest by swapping
 void heapify(int arr[], int n, int cur){
     int largest = cur;
     int leftChild = 2*cur + 1;
@@ -24,6 +28,20 @@ void heapify(int arr[], int n, int cur){
         swap(arr[cur], arr[largest]);
         heapify(arr, n, largest);
     }
+}
+
+void heapSort(int arr[], int s){
+    for(int i=s-1;i>=0;i--){
+        swap(arr[0], arr[i]);
+        heapify(arr,i,0);
+    }
+}
+
+void printArray(int arr[], int n){
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
 }
 
 int main()
@@ -52,10 +70,13 @@ int main()
         heapify(arr,n,i);
     }
 
-    cout<<endl;
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
+    cout<<endl<<"before heapsort"<<endl;
+    printArray(arr, n);
+
+    heapSort(arr,n);
+
+    cout<<"after heapsort"<<endl;
+    printArray(arr, n);
 
 
     return 0;
